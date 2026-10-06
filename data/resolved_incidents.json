@@ -1,0 +1,47 @@
+[
+  {
+    "number": "INC0091001",
+    "short_description": "Branch teller workstations cannot print receipts after Windows update",
+    "description": "Multiple tellers at branch 0412 report that receipts no longer print after last night's workstation update. Contact: teller.lead@contoso-bank.example, phone +1 555 0100 1234.",
+    "category": "Hardware",
+    "service": "Branch Teller",
+    "cmdb_ci": "cbk-tel-ws-0412-03",
+    "assignment_group": "CB-Branch-Support",
+    "priority": "3 - Moderate",
+    "resolution_code": "Solved (Permanently)",
+    "cause": "The workstation update replaced the receipt printer driver with a generic driver that does not support the cutter command.",
+    "close_notes": "1. Rolled back the generic driver and installed the approved receipt printer driver version 5.2 from the software centre.\n2. Restarted the teller application and printed a test receipt.\n3. Added the printer driver to the update exclusion list so the next update does not replace it.\nCustomer account 123456789012 was mentioned by the caller but is not related.",
+    "work_notes": [
+      "Reproduced on a second workstation in the same branch.",
+      "Same driver version reported by two other branches."
+    ]
+  },
+  {
+    "number": "INC0091002",
+    "short_description": "Payments Gateway API timeouts during morning peak",
+    "description": "Payments Gateway response times above 5 seconds between 08:55 and 09:20. Alerts from the connection pool monitor.",
+    "category": "Application",
+    "service": "Payments Gateway",
+    "cmdb_ci": "cbk-pay-app-01",
+    "assignment_group": "CB-Payments-Platform",
+    "priority": "1 - Critical",
+    "resolution_code": "Solved (Work Around)",
+    "cause": "A reporting query without a date filter held database connections for several minutes and exhausted the gateway connection pool.",
+    "close_notes": "- Captured the SQL text of the long-running sessions.\n- Restarted gateway nodes one at a time to release leaked connections.\n- Reporting job disabled until the query is fixed; problem record raised.",
+    "work_notes": []
+  },
+  {
+    "number": "INC0091003",
+    "short_description": "Laptop asks for recovery key",
+    "description": "User laptop asks for a key at start up.",
+    "category": "",
+    "service": "",
+    "cmdb_ci": "",
+    "assignment_group": "CB-Service-Desk",
+    "priority": "4 - Low",
+    "resolution_code": "Solved (Permanently)",
+    "cause": "",
+    "close_notes": "Gave user the recovery key by phone.",
+    "work_notes": []
+  }
+]
